@@ -3153,7 +3153,7 @@ function yieldLibrary:CreateLib(LibraryConfig)
 		IntroBackground:Destroy()
 		minimizeHolder()
 	end)
-	return yieldLibrary
+	
 end
-
+return yieldLibrary
 
