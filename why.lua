@@ -1,7 +1,7 @@
 local yieldLibrary = {}
 local Utility = {}
 
-function yieldLibrary.CreateLib(LibraryConfig)
+function yieldLibrary:CreateLib(LibraryConfig)
 	LibraryConfig = LibraryConfig or {}
 	LibraryConfig.Name = LibraryConfig.Name or "Custom Admin Library"
 	LibraryConfig.Version = LibraryConfig.Version or "v1.0.0"
