@@ -9,7 +9,6 @@ function yieldLibrary:CreateLib(LibraryConfig)
 	COREGUI = cloneref(game:GetService("CoreGui"))
 	Players = cloneref(game:GetService("Players"))
 
-	currentVersion = '1.0.0'
 
 	Holder = Instance.new("Frame")
 	Title = Instance.new("TextLabel")
@@ -131,7 +130,7 @@ function yieldLibrary:CreateLib(LibraryConfig)
 	Title.Size = UDim2.new(0, 250, 0, 20)
 	Title.Font = Enum.Font.SourceSans
 	Title.TextSize = 18
-	Title.Text = "Custom admin v" .. currentVersion
+	Title.Text = LibraryConfig.Name .. " " .. LibraryConfig.Version
 
 	do
 		local emoji = ({
@@ -3153,7 +3152,5 @@ function yieldLibrary:CreateLib(LibraryConfig)
 		IntroBackground:Destroy()
 		minimizeHolder()
 	end)
-	
 end
-return yieldLibrary
 
