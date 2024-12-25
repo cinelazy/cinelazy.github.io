@@ -3153,4 +3153,4 @@ function yieldLibrary:CreateLib(LibraryConfig)
 		minimizeHolder()
 	end)
 end
-
+return yieldLibrary
