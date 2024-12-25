@@ -12,5 +12,5 @@ function yieldLibrary:CreateLib(LibraryConfig)
     	print(LibraryConfig.Version)
 end
 print("antes de dar valor")
-return yieldLibrary
+
 print("despues")
