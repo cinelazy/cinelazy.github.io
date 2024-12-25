@@ -2,7 +2,7 @@ local yieldLibrary = {}
 local Utility = {}
 
 function yieldLibrary:CreateLib(LibraryConfig)
-	LibraryConfig = LibraryConfig or {}
+	--LibraryConfig = LibraryConfig or {}
 	LibraryConfig.Name = LibraryConfig.Name or "Custom Admin Library"
 	LibraryConfig.Version = LibraryConfig.Version or "v1.0.0"
 
@@ -12,4 +12,4 @@ function yieldLibrary:CreateLib(LibraryConfig)
     print(LibraryConfig.Version)
 end
 
-return yieldLibrary -- Esto expone `yieldLibrary` para que lo pueda usar el script que lo cargue.
+return yieldLibrary
