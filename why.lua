@@ -8,11 +8,8 @@ function yieldLibrary:CreateLib(LibraryConfig)
 
 	COREGUI = cloneref(game:GetService("CoreGui"))
 	Players = cloneref(game:GetService("Players"))
-	function test1()
     	print(LibraryConfig.Name)
     	print(LibraryConfig.Version)
-	end
-	return test()
 end
 
 return yieldLibrary
