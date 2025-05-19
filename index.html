@@ -6,31 +6,92 @@
   <meta name="description" content="Artículo informativo sobre los beneficios del ejercicio físico para la salud.">
   <title>Beneficios del Ejercicio Físico</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
-      background-color: #f9f9f9;
     }
-    header, footer {
-      background: #333;
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #333;
       color: white;
       padding: 1em;
       text-align: center;
     }
-    main {
-      max-width: 800px;
-      margin: 2em auto;
+
+    nav {
+      background-color: #444;
+      color: white;
       padding: 1em;
-      background: white;
+      display: flex;
+      justify-content: space-around;
     }
-    h1 {
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5em 1em;
+    }
+
+    nav a:hover {
+      background-color: #555;
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 200px;
+      background-color: #e4e4e4;
+      padding: 1em;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      margin: 1em 0;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
       color: #333;
     }
+
+    .sidebar ul li a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      flex: 1;
+      padding: 2em;
+      background-color: white;
+    }
+
     .ads {
       margin: 2em 0;
       text-align: center;
+      background-color: #f1f1f1;
+      padding: 1em;
+      border: 1px solid #ddd;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1em;
     }
   </style>
 </head>
@@ -40,25 +101,45 @@
     <h1>Salud y Bienestar</h1>
   </header>
 
-  <main>
-    <h2>Beneficios del Ejercicio Físico</h2>
-    <p>El ejercicio físico regular es fundamental para mantener un estilo de vida saludable. Ayuda a controlar el peso, mejora el estado de ánimo y reduce el riesgo de enfermedades crónicas como la diabetes tipo 2, enfermedades cardíacas y algunos tipos de cáncer.</p>
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Artículos</a>
+    <a href="#">Ejercicio</a>
+    <a href="#">Nutrición</a>
+    <a href="#">Contacto</a>
+  </nav>
 
-    <p>Además, la actividad física regular puede mejorar la salud mental, aumentar los niveles de energía y fomentar una mejor calidad del sueño. Incluso pequeñas cantidades de ejercicio diario pueden tener un impacto significativo en la salud general.</p>
+  <div class="container">
+    <aside class="sidebar">
+      <h3>Temas</h3>
+      <ul>
+        <li><a href="#">Ejercicio en casa</a></li>
+        <li><a href="#">Rutinas para principiantes</a></li>
+        <li><a href="#">Alimentación saludable</a></li>
+        <li><a href="#">Salud mental</a></li>
+      </ul>
+    </aside>
 
-    <!-- Espacio para AdSense -->
-    <div class="ads">
-      <!-- Código de anuncio de AdSense (sustituye esto con el código real proporcionado por Google) -->
-      <p><em>Aquí se mostrará un anuncio de Google si se ha aprobado la cuenta.</em></p>
-    </div>
+    <main>
+      <h2>Beneficios del Ejercicio Físico</h2>
+      <p>El ejercicio físico regular es fundamental para mantener un estilo de vida saludable. Ayuda a controlar el peso, mejora el estado de ánimo y reduce el riesgo de enfermedades crónicas como la diabetes tipo 2, enfermedades cardíacas y algunos tipos de cáncer.</p>
 
-    <h3>Recomendaciones</h3>
-    <ul>
-      <li>Realiza al menos 30 minutos de ejercicio moderado cinco veces a la semana.</li>
-      <li>Combina ejercicios aeróbicos con entrenamiento de fuerza.</li>
-      <li>Consulta a tu médico antes de comenzar cualquier rutina nueva si tienes condiciones preexistentes.</li>
-    </ul>
-  </main>
+      <p>Además, la actividad física regular puede mejorar la salud mental, aumentar los niveles de energía y fomentar una mejor calidad del sueño. Incluso pequeñas cantidades de ejercicio diario pueden tener un impacto significativo en la salud general.</p>
+
+      <!-- Espacio para AdSense -->
+      <div class="ads">
+        <!-- Sustituye esta línea con tu código de AdSense -->
+        <p><em>Aquí se mostrará un anuncio de Google si se ha aprobado la cuenta.</em></p>
+      </div>
+
+      <h3>Recomendaciones</h3>
+      <ul>
+        <li>Realiza al menos 30 minutos de ejercicio moderado cinco veces a la semana.</li>
+        <li>Combina ejercicios aeróbicos con entrenamiento de fuerza.</li>
+        <li>Consulta a tu médico antes de comenzar cualquier rutina nueva si tienes condiciones preexistentes.</li>
+      </ul>
+    </main>
+  </div>
 
   <footer>
     <p>&copy; 2025 Salud y Bienestar. Todos los derechos reservados.</p>
