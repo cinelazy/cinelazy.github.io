@@ -3,34 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirección AdSense</title>
+    <title>Introducción a la Biología</title>
+
+    <!-- Script de anuncios de Google -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9197944599615137"
             crossorigin="anonymous"></script>
-    <script>
-        
-        function redirigirDespuesDeClic() {
-            setTimeout(function () {
-                
-                window.location.href = "https://tupagina.com";
-            }, 3000);
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
         }
-    </script>
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            padding: 20px;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .ad-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-    <h1></h1>
 
+<header>
+    <h1>Bienvenido a la Biología</h1>
+    <p>Explora el fascinante mundo de la vida y los organismos.</p>
+</header>
 
-    <div onclick="redirigirDespuesDeClic()">
+<nav>
+    <a href="#introduccion">Introducción</a>
+    <a href="#temas">Temas Principales</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
+<div class="container">
+    <section id="introduccion">
+        <h2>¿Qué es la Biología?</h2>
+        <p>La biología es la ciencia que estudia la vida y los organismos vivos. Desde las células microscópicas hasta los ecosistemas completos, la biología abarca una amplia gama de disciplinas que explican los procesos naturales que ocurren en los seres vivos.</p>
+    </section>
+
+    <section id="temas">
+        <h2>Temas Principales</h2>
+        <ul>
+            <li><strong>Genética:</strong> El estudio de los genes y la herencia.</li>
+            <li><strong>Ecología:</strong> La relación de los organismos con su entorno.</li>
+            <li><strong>Fisiología:</strong> Cómo los organismos funcionan a nivel biológico.</li>
+            <li><strong>Taxonomía:</strong> La clasificación de los seres vivos.</li>
+            <li><strong>Evolución:</strong> Cómo las especies cambian a lo largo del tiempo.</li>
+        </ul>
+    </section>
+
+    <div class="ad-container">
+        <h3>Publicidad</h3>
+        <!-- Anuncio de Google -->
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-9197944599615137"
              data-ad-slot="1234567890"
              data-ad-format="auto"></ins>
         <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
+            (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </div>
 
-    <p>.</p>
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Si tienes alguna pregunta o deseas más información sobre biología, no dudes en contactarnos.</p>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2025 Biología Online. Todos los derechos reservados.</p>
+</footer>
+
 </body>
 </html>
