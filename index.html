@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuncio de Redirección</title>
+    <title>Aanuncio de Redirección</title>
     <style>
-        /* Estilos para centrar el contenido en la pantallaa */
+        /* Estilos para centrar el contenido en la pantalla */
         body, html {
             height: 100%;
             margin: 0;
@@ -58,7 +58,7 @@
         <p>Tu click es importante para ayudarnos a continuar con el contenido.</p>
 
         <!-- Contenedor para el anuncio -->
-        <div class="ad-container" onclick="openAdAndRedirect()">
+        <div class="ad-container" onclick="delayedRedirect()">
             <!-- Script del anuncio -->
             <script type="text/javascript">
                 atOptions = {
@@ -74,21 +74,12 @@
     </div>
 
     <script>
-        function openAdAndRedirect() {
-            // Buscamos el src del iframe generado dinámicamente
-            var iframe = document.querySelector('.ad-container iframe');
-            
-            if (iframe) {
-                var adUrl = iframe.src; // Obtenemos la URL del anuncio que está en el iframe
-                
-                // Abrimos el anuncio en una nueva pestaña
-                window.open(adUrl, "_blank");
-                
-                // Redirigimos a la nueva página en la misma pestaña
-                setTimeout(function() {
-                    window.location.href = "https://www.otraweb.com";
-                }, 1000); // Espera 1 segundo para permitir que la nueva pestaña se abra antes de redirigir
-            }
+        function delayedRedirect() {
+            // Retraso de 5 segundos antes de redirigir
+            setTimeout(function() {
+                // Redirige a la nueva página
+                window.location.href = "https://www.otraweb.com";
+            }, 5000); // 5000 milisegundos = 5 segundos
         }
     </script>
 
