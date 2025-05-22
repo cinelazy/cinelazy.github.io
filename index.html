@@ -28,6 +28,21 @@
       padding: 20px;
       border-radius: 10px;
     }
+    .testimonial {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+    .testimonial p {
+      font-style: italic;
+    }
+    .social-icons i {
+      font-size: 24px;
+      margin: 0 10px;
+      color: #343a40;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -44,6 +59,7 @@
           <li class="nav-item"><a class="nav-link" href="#nutricion">Nutrición</a></li>
           <li class="nav-item"><a class="nav-link" href="#ejercicio">Ejercicio</a></li>
           <li class="nav-item"><a class="nav-link" href="#mental">Salud Mental</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
           <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
         </ul>
       </div>
@@ -82,6 +98,12 @@
             <li>Hidrátate con agua</li>
             <li>Evita el azúcar refinado</li>
           </ul>
+          <h4>Consejos Rápidos</h4>
+          <ul>
+            <li>Come en porciones controladas.</li>
+            <li>Incluye grasas saludables como el aguacate y los frutos secos.</li>
+            <li>Haz de las legumbres tu fuente de proteína alternativa.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -100,11 +122,39 @@
             <li>Combina cardio con fuerza</li>
             <li>Prueba yoga para la flexibilidad</li>
           </ul>
+          <h4>Consejos Rápidos</h4>
+          <ul>
+            <li>Realiza estiramientos antes y después de entrenar.</li>
+            <li>Varía tus rutinas para mantener el interés.</li>
+            <li>Escucha a tu cuerpo y respétalo.</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- Anuncio de Display -->
+    <!-- Testimonios -->
+    <section id="testimonios" class="my-5">
+      <h2 class="text-center mb-4">Testimonios de Personas que Mejoraron su Salud</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="testimonial text-center">
+            <p>"Gracias a los consejos de nutrición de este sitio, he perdido peso de manera saludable y me siento con más energía." – Ana Pérez</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial text-center">
+            <p>"Empecé a hacer ejercicio de manera regular y mis niveles de estrés han disminuido enormemente. ¡Nunca me había sentido tan bien!" – Carlos Gómez</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial text-center">
+            <p>"La sección de salud mental me ayudó a entender la importancia de tomarme un tiempo para mí. Ahora medito todos los días." – María López</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AdSense Banner -->
     <div class="container text-center my-4">
       <ins class="adsbygoogle"
            style="display:block"
@@ -128,6 +178,12 @@
             <li>Meditación diaria</li>
             <li>Tiempo de calidad sin pantallas</li>
             <li>Consultar a un profesional si es necesario</li>
+          </ul>
+          <h4>Consejos Rápidos</h4>
+          <ul>
+            <li>Haz pausas durante el día para respirar profundamente.</li>
+            <li>Dedica tiempo a tus hobbies y pasatiempos.</li>
+            <li>Habla con alguien cuando necesites apoyo.</li>
           </ul>
         </div>
       </div>
@@ -159,9 +215,16 @@
   <!-- Footer -->
   <footer class="bg-success text-white text-center py-3">
     <p>&copy; 2025 Salud y Bienestar. Todos los derechos reservados.</p>
+    <div class="social-icons">
+      <i class="fab fa-facebook"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-instagram"></i>
+    </div>
   </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- FontAwesome Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>
