@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anuncio de Redirección</title>
     <style>
-        /* Estilos para centrar el contenido en la pantalla */
+        /* Estilos para centrar el contenido en la pantallaa */
         body, html {
             height: 100%;
             margin: 0;
@@ -58,7 +58,7 @@
         <p>Tu click es importante para ayudarnos a continuar con el contenido.</p>
 
         <!-- Contenedor para el anuncio -->
-        <div class="ad-container" onclick="window.location.href='https://www.ejemplo.com'">
+        <div class="ad-container" onclick="openAdAndRedirect()">
             <!-- Script del anuncio -->
             <script type="text/javascript">
                 atOptions = {
@@ -72,6 +72,25 @@
             <script type="text/javascript" src="//www.highperformanceformat.com/48b40190617f9ba166911b02d1769ada/invoke.js"></script>
         </div>
     </div>
+
+    <script>
+        function openAdAndRedirect() {
+            // Buscamos el src del iframe generado dinámicamente
+            var iframe = document.querySelector('.ad-container iframe');
+            
+            if (iframe) {
+                var adUrl = iframe.src; // Obtenemos la URL del anuncio que está en el iframe
+                
+                // Abrimos el anuncio en una nueva pestaña
+                window.open(adUrl, "_blank");
+                
+                // Redirigimos a la nueva página en la misma pestaña
+                setTimeout(function() {
+                    window.location.href = "https://www.otraweb.com";
+                }, 1000); // Espera 1 segundo para permitir que la nueva pestaña se abra antes de redirigir
+            }
+        }
+    </script>
 
 </body>
 </html>
