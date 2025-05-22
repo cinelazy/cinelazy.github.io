@@ -73,7 +73,7 @@
 <body>
 
     <div class="content">
-        <h1>1Haz clic en el anuncio para ser redirigido.</h1>
+        <h1>H22az clic en el anuncio para ser redirigido.</h1>
         <p>Tu click es importante para ayudarnos a continuar con el contenido.</p>
 
         <!-- Contenedor para el anuncio -->
@@ -98,43 +98,38 @@
     </div>
 
     <script>
-        let clickCount = 0;
-        let clickTimeout;
+        let firstClickTime = 0; // Marca el tiempo del primer clic
+        let clickTimeout; // Variable para el temporizador de 2 segundos
 
-        // Función que maneja el primer clic sobre el cartel
+        // Función para manejar el primer clic en el cartel
         function firstClick() {
+            // Registra el tiempo del primer clic
+            firstClickTime = Date.now();
+
             // Esconde el cartel después del primer clic
             document.getElementById('adOverlay').style.opacity = 0;
-            
-            // Incrementa el contador de clics
-            clickCount++;
 
-            // Si el contador llega a 1 (primer clic), se activa el contador para el segundo clic
-            if (clickCount === 1) {
-                // Habilita el segundo clic dentro de 2 segundos
-                clickTimeout = setTimeout(() => {
-                    clickCount = 0; // Resetea el contador después de 2 segundos
-                }, 2000); // 2 segundos
-            }
+            // Reinicia el contador de clics y establece el temporizador de 2 segundos
+            clearTimeout(clickTimeout); // Asegúrate de limpiar cualquier temporizador anterior
+            clickTimeout = setTimeout(function() {
+                firstClickTime = 0; // Resetea si el segundo clic no ocurre dentro de 2 segundos
+            }, 2000); // 2 segundos
+
+            // Ahora habilitamos el clic en el anuncio para el segundo clic
+            document.getElementById('adContainer').onclick = secondClick; // Cambia la acción al segundo clic
         }
 
-        // Función que redirige si el clic es rápido (dentro de 2 segundos)
+        // Función para manejar el segundo clic en el anuncio
         function secondClick() {
-            // Si el clic ocurrió dentro del tiempo permitido, redirige
-            if (clickCount === 1) {
-                window.location.href = "https://www.youtube.com";
+            // Verifica si el primer clic fue hace menos de 2 segundos
+            if (firstClickTime && Date.now() - firstClickTime < 2000) {
+                // Redirige a la página después de detectar el segundo clic rápido
+                window.location.href = "https://www.otraweb.com";
             }
+
+            // Restablece el evento de clic para que no se redirija más de una vez
+            document.getElementById('adContainer').onclick = null;
         }
-
-        // Necesitamos manejar el clic en el iframe para verificar el segundo clic
-        document.getElementById('adContainer').addEventListener('click', function(event) {
-            // Solo permitimos la redirección si el contador de clics está listo
-            if (clickCount === 1) {
-                // Llamamos a la función de redirección después de 2 segundos del primer clic
-                secondClick();
-            }
-        });
-
     </script>
 
 </body>
