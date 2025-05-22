@@ -6,20 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anuncio con Cartel</title>
     <style>
-        /* Estilos para centrar el contenido en la pantalla */
         body,
         html {
             height: 100%;
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
-            position: relative;
         }
 
         .content {
-            position: relative; /* Contenedor relativo para posicionar el overlay */
             width: 500px;
-            margin: auto;
+            margin: 50px auto;
             padding: 20px;
             border: 2px solid #333;
             border-radius: 10px;
@@ -39,13 +36,30 @@
             color: #555;
         }
 
-        /* Overlay (cartel) encima del anuncio */
+        .ad-container {
+            margin-top: 30px;
+            text-align: center;
+            position: relative;
+            width: 468px;
+            height: 60px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ad-container iframe {
+            width: 468px;
+            height: 60px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Overlay del mismo tamaño y posición que el anuncio */
         #overlay {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 468px;
+            height: 60px;
             background: rgba(0, 0, 0, 0.7);
             z-index: 1000;
             display: flex;
@@ -53,27 +67,14 @@
             align-items: center;
             color: #fff;
             cursor: pointer;
-            border-radius: 10px;
+            border-radius: 5px;
         }
 
         #overlay span {
-            font-size: 20px;
-            padding: 10px 20px;
+            font-size: 18px;
+            padding: 8px 16px;
             background: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-        }
-
-        /* Contenedor para el anuncio */
-        .ad-container {
-            margin-top: 30px;
-            text-align: center;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .ad-container iframe {
-            border: none;
-            border-radius: 5px;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -81,15 +82,15 @@
 <body>
 
     <div class="content">
-        <h1>Haz clic en el cartel para continuar</h1>
+        <h1>333Haz clic en el cartel para continuar</h1>
         <p>Al hacer clic activas la redirección si cambias de pestaña.</p>
 
-        <!-- Overlay que cubre todo -->
-        <div id="overlay">
-            <span>Haz clic aquí para ver el anuncio</span>
-        </div>
-
         <div class="ad-container">
+            <!-- Overlay dentro del contenedor del anuncio -->
+            <div id="overlay">
+                <span>Haz clic aquí para ver el anuncio</span>
+            </div>
+
             <!-- Script del anuncio -->
             <script type="text/javascript">
                 atOptions = {
@@ -105,24 +106,20 @@
     </div>
 
     <script>
-        (function() {
+        (function () {
             var overlay = document.getElementById('overlay');
-            // URL a la que se redirigirá si cambias de pestaña
             var redirectUrl = 'https://www.ejemplo-externo.com';
 
             function activateRedirectOnTabSwitch() {
-                // Usamos visibilitychange para detectar cuando la pestaña pierde visibilidad
-                document.addEventListener('visibilitychange', function() {
+                document.addEventListener('visibilitychange', function () {
                     if (document.hidden) {
                         window.location.href = redirectUrl;
                     }
                 });
             }
 
-            overlay.addEventListener('click', function() {
-                // Activar la mecánica de redirección
+            overlay.addEventListener('click', function () {
                 activateRedirectOnTabSwitch();
-                // Eliminar el cartel
                 overlay.parentNode.removeChild(overlay);
             });
         })();
