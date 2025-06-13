@@ -1,130 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuncio con Cartel</title>
-    <style>
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
+  <meta charset="UTF-8">
+  <title>Comentarios con Remark42</title>
 
-        .content {
-            width: 500px;
-            margin: 50px auto;
-            padding: 20px;
-            border: 2px solid #333;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+  <!-- Configuración de Remark42 -->
+  <script>
+    var remark_config = {
+      host: "case-pilot.gl.at.ply.gg:11364",
+      site_id: "cinelazy"
+    };
+  </script>
 
-        .content h1 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .content p {
-            font-size: 18px;
-            color: #555;
-        }
-
-        .ad-container {
-            margin-top: 30px;
-            text-align: center;
-            position: relative;
-            width: 468px;
-            height: 60px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .ad-container iframe {
-            width: 468px;
-            height: 60px;
-            border: none;
-            border-radius: 5px;
-        }
-
-        /* Overlay del mismo tamaño y posición que el anuncio */
-        #overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 468px;
-            height: 60px;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        #overlay span {
-            font-size: 18px;
-            padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-        }
-    </style>
+  <!-- Script para cargar el widget -->
+  <script>
+    !function(e,n){
+      for(var o=0;o<e.length;o++){
+        var r=n.createElement("script"),c=".js",d=n.head||n.body;
+        "noModule" in r ? (r.type="module",c=".mjs") : r.async=!0;
+        r.defer=!0;
+        r.src=remark_config.host+"/web/"+e[o]+c;
+        d.appendChild(r);
+      }
+    }(remark_config.components || ["embed"], document);
+  </script>
 </head>
-
 <body>
 
-    <div class="content">
-        <h1>333Haz clic en el cartel para continuar</h1>
-        <p>Al hacer clic activas la redirección si cambias de pestaña.</p>
+  <h1>test</h1>
+  
 
-        <div class="ad-container">
-            <!-- Overlay dentro del contenedor del anuncio -->
-            <div id="overlay">
-                <span>Haz clic aquí para ver el anuncio</span>
-            </div>
-
-            <!-- Script del anuncio -->
-            <script type="text/javascript">
-                atOptions = {
-                    'key': '48b40190617f9ba166911b02d1769ada',
-                    'format': 'iframe',
-                    'height': 60,
-                    'width': 468,
-                    'params': {}
-                };
-            </script>
-            <script type="text/javascript" src="//www.highperformanceformat.com/48b40190617f9ba166911b02d1769ada/invoke.js"></script>
-        </div>
-    </div>
-
-    <script>
-        (function () {
-            var overlay = document.getElementById('overlay');
-            var redirectUrl = 'https://www.ejemplo-externo.com';
-
-            function activateRedirectOnTabSwitch() {
-                document.addEventListener('visibilitychange', function () {
-                    if (document.hidden) {
-                        window.location.href = redirectUrl;
-                    }
-                });
-            }
-
-            overlay.addEventListener('click', function () {
-                activateRedirectOnTabSwitch();
-                overlay.parentNode.removeChild(overlay);
-            });
-        })();
-    </script>
+  <!-- Aquí aparecerán los comentarios -->
+  <div id="remark42"></div>
 
 </body>
-
 </html>
