@@ -7,41 +7,28 @@
   <!-- Configuración de Remark42 -->
   <script>
     var remark_config = {
-      host: "https://engaged-drum-major.ngrok-free.app",
+      host: "https://c6dc5c30653f1fabade2f3e937f06c4f.serveo.net",
       site_id: "cinelazy"
     };
   </script>
-  
+
+  <!-- Script para cargar el widget -->
   <script>
-    // Función para cargar el script de Remark42 con la cabecera ngrok-skip-browser-warning
-    async function loadRemark42Script() {
-      const url = remark_config.host + "/web/embed.mjs"; // URL del script Remark42
-      try {
-        const response = await fetch(url, {
-          method: "GET",
-          headers: {
-            "ngrok-skip-browser-warning": "true"
-          }
-        });
-        const scriptContent = await response.text();
-        
-        // Crear el script dinámicamente e insertarlo en el HTML
-        const scriptElement = document.createElement("script");
-        scriptElement.textContent = scriptContent;
-        document.head.appendChild(scriptElement); // Agregar el script al head
-      } catch (error) {
-        console.error("Error al cargar Remark42:", error);
+    !function(e,n){
+      for(var o=0;o<e.length;o++){
+        var r=n.createElement("script"),c=".js",d=n.head||n.body;
+        "noModule" in r ? (r.type="module",c=".mjs") : r.async=!0;
+        r.defer=!0;
+        r.src=remark_config.host+"/web/"+e[o]+c;
+        d.appendChild(r);
       }
-    }
-
-    // Cargar el script cuando la página esté lista
-    window.onload = loadRemark42Script;
+    }(remark_config.components || ["embed"], document);
   </script>
-
 </head>
 <body>
 
   <h1>test</h1>
+  
 
   <!-- Aquí aparecerán los comentarios -->
   <div id="remark42"></div>
