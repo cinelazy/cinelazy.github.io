@@ -5,50 +5,18 @@
   <title>Comentarios con Remark42</title>
 
   <!-- Configuración de Remark42 -->
-  <script>
-    // Configuración del host y del sitio
-    var remark_config = {
-        host: "https://b6112366033d8a9551e575524c3ed7a1.serveo.net", // Dirección del servidor
-        site_id: "cinelazy" // ID del sitio
-    };
-</script>
-
-<!-- Script para cargar el widget en la página -->
-<script>
-    !function(components, document){
-        // Itera sobre los componentes a cargar
-        for(var i = 0; i < components.length; i++){
-            var scriptElement = document.createElement("script"), // Crea un elemento de script
-                fileExtension = ".js", // Extensión por defecto
-                headOrBody = document.head || document.body; // Obtiene el head o body del documento
-
-            // Si el navegador soporta módulos, usa la extensión .mjs
-            if ("noModule" in scriptElement) {
-                scriptElement.type = "module";
-                fileExtension = ".mjs";
-            } else {
-                scriptElement.async = true; // Hace que el script se cargue de manera asíncrona
-            }
-
-            scriptElement.defer = true; // El script se ejecutará después de que el HTML haya sido cargado
-
-            // Establece la URL de donde se cargará el script
-            scriptElement.src = remark_config.host + "/web/" + components[i] + fileExtension;
-            
-            // Añade el script al documento
-            headOrBody.appendChild(scriptElement);
-        }
-    }(remark_config.components || ["embed"], document);
-</script>
+  
 
 </head>
 <body>
 
   <h1>test</h1>
-  
-
-  <!-- Aquí aparecerán los comentarios -->
-  <div id="remark42"></div>
+  <script>
+var idcomments_acct = '146308282d5996693a88fcae2cfc3f52';
+var idcomments_post_id;
+var idcomments_post_url;
+</script>
+<script type="text/javascript" src="https://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
 
 </body>
 </html>
