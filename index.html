@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Transmitir Video a Chromecast</title>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <title>Transmitir a Chromecast.</title>
   <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
   <style>
     body {
@@ -25,21 +24,31 @@
       color: white;
       cursor: pointer;
     }
+    google-cast-launcher {
+      width: 48px;
+      height: 48px;
+      margin: 10px;
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
-  <h1>Transmitir a Chromecast</h1>
+  <h1>Transmitir video a Chromecast</h1>
 
   <video id="videoElement" controls poster="https://i.ibb.co/brFghvf/Cine-Lazy-logo.png">
     <source src="https://huggingface.co/spaces/FSDFDSFDSFSD/randomnes/resolve/main/1bskubkubvuv.mp4?download=true" type="video/mp4">
     Tu navegador no soporta HTML5 video.
   </video>
 
-  <br>
-  <button id="castButton">Transmitir a Chromecast</button>
+  <!-- Botón oficial de Chromecast -->
+  <div>
+    <google-cast-launcher></google-cast-launcher>
+  </div>
+
+  <!-- Botón adicional para enviar el video (solo funciona después de seleccionar dispositivo) -->
+  <button id="castButton">Enviar video al Chromecast</button>
 
   <script>
-    // Cuando el Cast API esté lista
     window['__onGCastApiAvailable'] = function(isAvailable) {
       if (isAvailable) {
         cast.framework.CastContext.getInstance().setOptions({
@@ -50,23 +59,25 @@
     };
 
     document.getElementById('castButton').addEventListener('click', () => {
-      const videoSrc = document.getElementById('videoElement').querySelector('source').src;
+      const context = cast.framework.CastContext.getInstance();
+      const session = context.getCurrentSession();
 
+      if (!session) {
+        alert("Primero selecciona un dispositivo con el botón de Chromecast (arriba).");
+        console.warn("No hay sesión de Cast activa.");
+        return;
+      }
+
+      const videoSrc = document.getElementById('videoElement').querySelector('source').src;
       const mediaInfo = new chrome.cast.media.MediaInfo(videoSrc, 'video/mp4');
       mediaInfo.metadata = new chrome.cast.media.GenericMediaMetadata();
-      mediaInfo.metadata.title = "Video desde HuggingFace";
+      mediaInfo.metadata.title = "Video desde Hugging Face";
 
       const request = new chrome.cast.media.LoadRequest(mediaInfo);
-
-      const session = cast.framework.CastContext.getInstance().getCurrentSession();
-      if (session) {
-        session.loadMedia(request).then(
-          () => console.log('Transmisión iniciada en Chromecast'),
-          error => console.error('Error al transmitir', error)
-        );
-      } else {
-        console.warn("No hay sesión de Cast activa.");
-      }
+      session.loadMedia(request).then(
+        () => console.log('Transmisión iniciada'),
+        (error) => console.error('Error al transmitir', error)
+      );
     });
   </script>
 </body>
