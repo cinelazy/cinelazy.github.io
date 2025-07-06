@@ -2,7 +2,7 @@
   {
     "id": 1,
     "titulo": "Godzilla y Kong: El nuevo imperio",
-    "fecha_estreno": "2025",
+    "fecha_estreno": "2020",
     "genero": ["Acción", "Catastrofes"],
     "categoria": "pelicula",
     "descripcion": "Una aventura cinematográfica completamente nueva, que enfrentará al todopoderoso Kong y al temible Godzilla contra una colosal amenaza desconocida escondida dentro de nuestro mundo.",
@@ -827,7 +827,7 @@
   },
   {
     "id": 35,
-    "titulo": "wasa2",
+    "titulo": "wonka",
     "fecha_estreno": "2023",
     "genero": ["Acción", "Catastrofes"],
     "categoria": "pelicula",
@@ -835,7 +835,7 @@
     "duracion": 115,
     "uActu": "27/1/2025",
     "imagen": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic1.srcdn.com%2Fwordpress%2Fwp-content%2Fuploads%2F2023%2F10%2Fwonka-movie-poster.jpg&f=1&nofb=1&ipt=d92f55e2d2caa295ff511575fa3b876d5dae14e7d7677891827dc91a7a8cda87&ipo=images",
-    "apta": "sabroso",
+    "apta": "+13",
     "alt": "Imagen 1",
     "iframeOptions": [
       {
