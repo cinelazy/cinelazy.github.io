@@ -2,87 +2,14 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Transmitir Video al Chromecast</title>
+  <title>CineLazy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Cast SDK -->
-  <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      text-align: center;
-    }
-
-    video {
-      width: 100%;
-      max-width: 600px;
-      margin-bottom: 20px;
-    }
-
-    google-cast-launcher {
-      height: 48px;
-      width: 48px;
-      margin: 10px;
-      cursor: pointer;
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-    }
-  </style>
+  
 </head>
 <body>
 
-  <h1>Transmitir al Chromecast</h1>
-
-  <!-- Video local (no se transmite directamente, se usa la URL) -->
-  <video id="video" controls>
-    <source src="https://huggingface.co/spaces/FSDFDSFDSFSD/randomnes/resolve/main/1bskubkubvuv.mp4?download=true" type="video/mp4">
-    Tu navegador no soporta la etiqueta de video.
-  </video>
-
-  <!-- Botón Chromecast -->
-  <google-cast-launcher></google-cast-launcher>
-
-  <!-- Botón para enviar el video al Chromecast -->
-  <br>
-  <button onclick="castVideo()">Enviar al Chromecast</button>
-
-  <script>
-    // Inicialización del contexto Cast
-    window['__onGCastApiAvailable'] = function(isAvailable) {
-      if (isAvailable) {
-        cast.framework.CastContext.getInstance().setOptions({
-          receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID,
-          autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
-        });
-      }
-    };
-
-    function castVideo() {
-      const video = document.getElementById('video');
-      const videoSrc = video.querySelector('source').src;
-
-      const mediaInfo = new chrome.cast.media.MediaInfo(videoSrc, 'video/mp4');
-      mediaInfo.metadata = new chrome.cast.media.GenericMediaMetadata();
-      mediaInfo.metadata.title = "Big Buck Bunny";
-
-      const request = new chrome.cast.media.LoadRequest(mediaInfo);
-
-      const session = cast.framework.CastContext.getInstance().getCurrentSession();
-      if (session) {
-        session.loadMedia(request).then(
-          () => console.log("Video transmitido al Chromecast."),
-          (err) => console.error("Error:", err)
-        );
-      } else {
-        console.error("No hay sesión activa de Chromecast.");
-      }
-    }
-  </script>
+  <iframe src="https://gurhgierkgeuig.unaux.com/intento.php" hight="100%"></iframe>
 
 </body>
 </html>
