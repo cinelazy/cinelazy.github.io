@@ -1,14 +1,295 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>CineLazy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinelazy</title>
 
-  
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        color: #ff3333;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Header */
+    .header {
+        width: 100%;
+        padding: 15px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; /* Necesario para acomodar el botón */
+        background: #111;
+        box-shadow: 0 0 10px #ff0000;
+    }
+
+    /* Aseguramos que el título siempre esté al centro */
+    .header h1 {
+        margin: 0;
+        font-size: 32px;
+        letter-spacing: 3px;
+        text-align: center;
+        width: 100%;
+        pointer-events: none;
+    }
+
+    /* Botón móvil (oculto en PC) */
+    .mobile-toggle {
+        display: none;
+    }
+
+    /* Panel dentro del body */
+    .panel {
+        margin-top: 80px;
+        background: #111;
+        padding: 30px;
+        width: 300px;
+        max-width: 90%;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 15px #ff000055;
+    }
+
+    .panel button {
+        width: 100%;
+        background: #333;
+        color: #fff;
+        border: none;
+        padding: 15px;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+    .panel button:hover {
+        background: #555;
+    }
+
+    /* PANEL IZQUIERDO */
+    .left-panel {
+        position: fixed;
+        left: 0;
+        top: 120px;
+        width: 300px;
+        background: #111;
+        border-radius: 0 15px 15px 0;
+        padding: 20px;
+        box-shadow: 0 0 15px #ff000080;
+        height: calc(100% - 150px);
+        overflow-y: auto;
+        transition: transform 0.4s ease-in-out;
+    }
+
+    /* Accordion */
+    .accordion-item {
+        margin-bottom: 12px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #1a1a1a;
+        box-shadow: 0 0 10px #ff000030;
+    }
+
+    .accordion-button {
+        width: 100%;
+        padding: 12px;
+        text-align: left;
+        background: #222;
+        color: #ff4d4d;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    .accordion-button:hover {
+        background: #333;
+    }
+
+    .accordion-body {
+        padding: 15px;
+        color: #ccc;
+        background: #1a1a1a;
+    }
+
+    .collapse {
+        display: none;
+    }
+
+    .collapse.open {
+        display: block;
+        animation: openAnim 0.3s ease-out;
+    }
+
+    @keyframes openAnim {
+        from {opacity: 0; transform: translateY(-5px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Caja estilo Discord */
+    .discord-box {
+        background-color: #5865F2;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 8px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    .discord-box img {
+        width: 100px;
+        margin: 10px 0;
+    }
+
+    .discord-box a {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: white;
+        color: #5865F2;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    /* 📱📱📱 RESPONSIVE MOBILE FIXES */
+    @media (max-width: 768px) {
+
+        /* AHORA el header ordena todo correctamente */
+        .header {
+            justify-content: space-between !important; /* Arreglo principal */
+            padding: 15px 20px;
+        }
+
+        .header h1 {
+            font-size: 26px;
+            text-align: center;
+        }
+
+        /* Botón visible en móvil sin tapar el título */
+        .mobile-toggle {
+            display: block;
+            background: #ff3333;
+            border: none;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 1000;
+            font-weight: bold;
+        }
+
+        /* Panel lateral tipo menú */
+        .left-panel {
+            width: 80%;
+            max-width: 300px;
+            transform: translateX(-100%);
+            z-index: 999;
+        }
+
+        .left-panel.open {
+            transform: translateX(0);
+        }
+
+        /* Panel central baja para no quedar tapado */
+        .panel {
+            margin-top: 140px;
+        }
+    }
+</style>
+
+
+<script>
+    function toggleAccordion(id) {
+        const content = document.getElementById(id);
+        content.classList.toggle("open");
+    }
+</script>
+
 </head>
 <body>
-  <iframe src="https://cinelazy2.infinityfree.me" width="100%" height="100%" frameborder="0"></iframe>
+
+    <!-- HEADER -->
+    <div class="header">
+        <button class="mobile-toggle" onclick="document.querySelector('.left-panel').classList.toggle('open')">
+           ☰ Información
+        </button>
+
+        <h1>cinelazy</h1>
+    </div>
+
+    <!-- PANEL IZQUIERDO -->
+    <div class="left-panel">
+
+        <!-- ÍTEM 1 -->
+        <div class="accordion-item">
+            <button class="accordion-button" onclick="toggleAccordion('acc1')">
+                ¿Cuál es el Discord de la página, qué ventajas da?
+            </button>
+            <div id="acc1" class="collapse accordion-body">
+                <h6>
+                    1. Notificaciones sobre nuevos contenidos. <br>
+                    2. Noticias en tiempo real del sitio. <br>
+                    3. Solicitar contenido nuevo. <br>
+                    4. Reportar errores. <br>
+                    5. Obtener asistencia del sitio. 
+                </h6>
+
+                <div class="discord-box">
+                    <h1 style="margin:0 0 10px;">Enterate de todo 😎</h1>
+                    <img src="https://i.ibb.co/brFghvf/Cine-Lazy-logo.png" alt="">
+                    <a href="https://discord.gg/9p9HRA4zEn">¡Unirme Ahora!</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ÍTEM 2 -->
+        <div class="accordion-item">
+            <button class="accordion-button" onclick="toggleAccordion('acc2')">
+                ¿Cómo gano dinero si la página no tiene anuncios?
+            </button>
+            <div id="acc2" class="collapse accordion-body">
+                <h6>No gano dinero, quizá más adelante añada anuncios.</h6>
+            </div>
+        </div>
+
+        <!-- ÍTEM 3 -->
+        <div class="accordion-item">
+            <button class="accordion-button" onclick="toggleAccordion('acc3')">
+                ¿De qué maneras puedo buscar películas o series?
+            </button>
+            <div id="acc3" class="collapse accordion-body">
+                <h6>
+                    Puedes buscar por año, descripción, género, apta, duración, ID, última actualización, etc.
+                </h6>
+            </div>
+        </div>
+
+        <!-- ÍTEM 4 -->
+        <div class="accordion-item">
+            <button class="accordion-button" onclick="toggleAccordion('acc4')">
+                ¿De dónde obtengo las películas y series?
+            </button>
+            <div id="acc4" class="collapse accordion-body">
+                <h6>Se las afano a otras páginas piratas.</h6>
+                <img src="https://c.tenor.com/MkTexhggt6QAAAAd/tenor.gif" style="width:100%; border-radius:10px;">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- PANEL CENTRAL -->
+    <div class="panel">
+        <button onclick="window.location.href='https://gurhgierkgeuig.unaux.com/'">Sitio 1</button>
+    </div>
 
 </body>
 </html>
